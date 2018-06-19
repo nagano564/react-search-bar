@@ -12,12 +12,12 @@ class Global extends Component {
   }
 
   search() {
-    const BASE_URL = "https://www.googleapis.com/books/v1/volumes?q="
+    const BASE_URL = "https://itunes.apple.com/search?term="
     fetch(`${BASE_URL}${this.state.query}`, { method: 'GET'} )
       .then(response => response.json())
       .then(json => {
-        let { items } = json;
-        this.setState({items})
+        let { results } = json;
+        this.setState({items: results})
       });
   }
 

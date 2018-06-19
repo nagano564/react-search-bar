@@ -4,7 +4,7 @@
 }
 
 /* Gallery Styles */
-.book {
+.album {
   display: inline-block;
   width: 220px;
   height: 220px;
@@ -14,7 +14,7 @@
   position: relative;
 }
 
-.book-img {
+.album-img {
   width: 220px;
   height: 220px;
   border: 4px solid #000;
@@ -23,7 +23,7 @@
   position: absolute;
 }
 
-.book-text {
+.album-text {
   background-color: #000;
   color: #fff;
   opacity: 0.75;
