@@ -34,3 +34,8 @@
   bottom: 0;
   padding: 10px;
 }
+
+.form-group {
+  width: 50%;
+  margin-left: 25%
+}
