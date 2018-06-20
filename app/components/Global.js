@@ -12,19 +12,30 @@ class Global extends Component {
   }
 
   search() {
-    const BASE_URL = "https://itunes.apple.com/search?term="
-    fetch(`${BASE_URL}${this.state.query}`, { method: 'GET'} )
+    const BASE_URL = 'https://itunes.apple.com/search?term=';
+    const items = fetch(`${BASE_URL}${this.state.query}`, { method: 'GET' })
       .then(response => response.json())
       .then(json => {
-        let { results } = json;
-        this.setState({items: results})
+        const { results } = json;
+        return results;
+      })
+      .then(results => {
+        const result = results.reduce((finalObj, item) => {
+          if (!finalObj[item.collectionName]) {
+            finalObj[item.collectionName] = item;
+          }
+          return finalObj;
+        }, {});
+
+        const shorterList = Object.keys(result).map(item => result[item]);
+        this.setState({ items: shorterList });
       });
   }
 
   render(){
     return (
       <div className="Global">
-        <h2>Music Search!</h2>
+        <h2>Kennys React Music Search!</h2>
         <FormGroup>
           <InputGroup>
             <FormControl
